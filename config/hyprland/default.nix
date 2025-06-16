@@ -48,7 +48,7 @@ in
 			"$mod, F, exec, firefox"
 			"$mod, D, exec, discord"
 			"$mod, W, exec, wasistlos"
-			"$mod, A, exec, pkill wofi || wofi --conf ${~/.config/wofi/config/config} --style ${~/.config/wofi/src/macchiato/style.css} -S drun --sort-order=alphabetical"
+			"$mod, A, exec, pkill wofi || wofi --conf ./wofi/config/config --style ./wofi/src/macchiato/style.css -S drun --sort-order=alphabetical"
 			"$mod, Print, exec, grim -g \"$(slurp)\" - | swappy -f -"
 
 			"CTRL ALT, W, exec, pkill waybar || waybar"
