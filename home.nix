@@ -2,7 +2,7 @@
 
 {
   imports = [
-	./config/hyprland.nix
+	./config/hyprland
 	./config/git.nix
 	./config/kitty.nix
 	./config/dunst.nix
