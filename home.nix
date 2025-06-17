@@ -43,7 +43,6 @@
     # '')
 
     pkgs.fastfetch
-    pkgs.plasmusic-toolbar
 
     pkgs.swappy
     pkgs.grim
@@ -67,7 +66,15 @@
       package = (pkgs.catppuccin-gtk.override { accents = [ "sapphire" ]; size = "standard"; variant = "macchiato"; });
       name = "Catppuccin-Macchiato-Standard-Sapphire-Dark";
     };
+    gtk3.extraConfig = {
+      "gtk-application-prefer-dark-theme" = true;
+    };
+    gtk4.extraConfig = {
+      "gtk-application-prefer-dark-theme" = true;
+    };
   };
+
+  home.sessionVariables.GTK_THEME = "Catppuccin-Macchiato-Standard-Sapphire-Dark";
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
