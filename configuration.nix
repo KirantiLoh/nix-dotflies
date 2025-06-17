@@ -99,6 +99,7 @@
 	pkgs.dunst
 	libnotify
 	pkgs.networkmanagerapplet
+	pkgs.brightnessctl
 	sddm-astronaut
 
 	swww
