@@ -3,7 +3,7 @@
 let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
 	waybar &
-	swww init &
+	swww-daemon &
 	swww img ./background.gif &
 	'';
 in 
@@ -55,6 +55,8 @@ in
 			", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1 5%+"
 			", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1 5%-"
 			", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+			",XF86MonBrightnessDown, exec, brightnessctl set 5%-"
+			",XF86MonBrightnessUp, exec, brightnessctl set 5%+"
 			"$mod ALT, F4, exec, shutdown -h now"
 
 			"CTRL ALT, Delete, exec, hyprctl dispatch exit"
