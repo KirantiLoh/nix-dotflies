@@ -127,7 +127,7 @@
 	};
 	defaultKeymap = "viins";
 	localVariables = {
-		PROMPT="%F{33}i%f%F{39}a%f%F{38}n%f%F{44}pan%f%F{50}@%f%F{43}ar%f%F{44}ch%f%F{38}:%1~/%f %F{44}%#%f";
+		PROMPT="%F{33}ki%f%F{39}ra%f%F{38}nti%f%F{44}loh%f%F{50}@%f%F{43}nix%f%F{44}os%f%F{38}:%1~/%f %F{44}>#%f";
 	};
   };
 
