@@ -5,6 +5,7 @@
 	./config/hyprland
 	./config/git.nix
 	./config/kitty.nix
+	./config/vscode.nix
 	./config/dunst.nix
   ];
 
@@ -47,6 +48,11 @@
     pkgs.swappy
     pkgs.grim
     pkgs.slurp
+
+    pkgs.nodejs_20
+    pkgs.typescript
+    pkgs.typescript-language-server
+    pkgs.pnpm
   ];
 
   home.pointerCursor = {
