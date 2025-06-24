@@ -5,9 +5,7 @@ programs.vscode = {
   extensions = with pkgs.vscode-extensions; [
     vscodevim.vim
 
-    vue.vscode-typescript-vue-plugin
     vue.volar
-    
     dbaeumer.vscode-eslint
 
     # Error Related
