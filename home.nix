@@ -121,10 +121,6 @@
 
   
   programs.zsh = {
-	enable = true;
-	autosuggestion = {
-		enable = true;
-	};
 	defaultKeymap = "viins";
 	localVariables = {
 		PROMPT="%F{33}ki%f%F{39}ra%f%F{38}nti%f%F{44}loh%f%F{50}@%f%F{43}nix%f%F{44}os%f%F{38}:%1~/%f %F{44}>#%f";
