@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, lib, pkgs, ... }:
 
 {
   imports =
@@ -75,7 +75,12 @@
 
   users.defaultUserShell = pkgs.zsh;
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    enableCompletion = true;
+    autosuggestions.enable = true;
+    syntaxHighlighting.enable = true;
+  };
 
   environment.sessionVariables = {
 	NIXOS_OZONE_WL = "1";
@@ -83,7 +88,15 @@
 
   hardware = {
 	graphics.enable = true;
-  	bluetooth.enable = true;
+  	bluetooth = {
+		enable = true;
+		settings = {
+			General = {
+      				Enable = "Source,Sink,Media,Socket";
+				Experimental = true;
+    			};
+    		};
+	};
   };
 
   virtualisation.docker = {
