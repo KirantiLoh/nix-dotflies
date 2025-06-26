@@ -5,8 +5,8 @@
   pkgs,
   ...
 }: let
-  myUser = "kirantiloh"; #adjust this to your username
-  command = "bin/nbfc_service --config-file './nbfc.json'";
+  username = "kirantiloh"; #adjust this to your username
+  command = "bin/nbfc_service --config-file '/home/${username}/.dotfiles/pkgs/nbfc/nbfc.json'";
 in {
   environment.systemPackages = with pkgs; [
     # if you are on stable uncomment the next line
