@@ -1,12 +1,17 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [
-	./config/hyprland
-	./config/git.nix
-	./config/kitty.nix
-	./config/vscode.nix
-	./config/dunst.nix
+    ./config/hyprland
+    ./config/git.nix
+    ./config/kitty.nix
+    ./config/vscode.nix
+    ./config/dunst.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -54,6 +59,8 @@
     pkgs.typescript
     pkgs.typescript-language-server
     pkgs.pnpm
+
+    pkgs.go
   ];
 
   home.pointerCursor = {
@@ -66,11 +73,22 @@
   gtk = {
     enable = true;
     iconTheme = {
-      package = (pkgs.catppuccin-papirus-folders.override { flavor = "macchiato"; accent = "sapphire"; });
-      name  = "Papirus-Dark";
+      package = (
+        pkgs.catppuccin-papirus-folders.override {
+          flavor = "macchiato";
+          accent = "sapphire";
+        }
+      );
+      name = "Papirus-Dark";
     };
     theme = {
-      package = (pkgs.catppuccin-gtk.override { accents = [ "sapphire" ]; size = "standard"; variant = "macchiato"; });
+      package = (
+        pkgs.catppuccin-gtk.override {
+          accents = [ "sapphire" ];
+          size = "standard";
+          variant = "macchiato";
+        }
+      );
       name = "Catppuccin-Macchiato-Standard-Sapphire-Dark";
     };
     gtk3.extraConfig = {
@@ -121,10 +139,11 @@
   services.mpris-proxy.enable = true;
 
   programs.zsh = {
-	enable = true;
-    	initContent = lib.mkOrder 500 ''	
-  		export PROMPT="%F{33}ki%f%F{39}ra%f%F{38}nti%f%F{44}loh%f%F{50}@%f%F{43}nix%f%F{44}os%f%F{38}:%1~/%f %F{44}>#%f"
-    	'';
+    enable = true;
+    initContent = lib.mkOrder 500 ''
+      	
+        		export PROMPT="%F{33}ki%f%F{39}ra%f%F{38}nti%f%F{44}loh%f%F{50}@%f%F{43}nix%f%F{44}os%f%F{38}:%1~/%f %F{44}>#%f"
+          	'';
   };
 
   # Let Home Manager install and manage itself.
