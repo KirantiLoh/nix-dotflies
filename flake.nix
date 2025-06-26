@@ -11,13 +11,20 @@
       # to avoid problems caused by different versions of nixpkgs.
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Neovim & its plugins
+    nvf = {
+	url = "github:notashelf/nvf";
+	inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nbfc-linux = {
       url = "github:nbfc-linux/nbfc-linux";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }: {
+  outputs = { self, nixpkgs, home-manager, nvf, ... }: {
 
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
@@ -29,6 +36,7 @@
             home-manager.useUserPackages = true;
             home-manager.users.kirantiloh = import ./home.nix;
           }
+	nvf.nixosModules.default
       ];
     };
   };
