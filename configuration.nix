@@ -2,15 +2,20 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-	./pkgs/nbfc
-	./pkgs/nvim
-    ];
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./pkgs/nbfc
+    ./pkgs/nvim
+  ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -42,37 +47,44 @@
   users.users.kirantiloh = {
     isNormalUser = true;
     description = "KirantiLoh";
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
-    packages = with pkgs; [];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
+    packages = with pkgs; [ ];
   };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Enable Hyprland
   programs.hyprland = {
-	enable = true;
-	xwayland.enable = true;
-	withUWSM = true;
+    enable = true;
+    xwayland.enable = true;
+    withUWSM = true;
   };
 
   programs.dconf.enable = true;
   services.blueman.enable = true;
   services.displayManager.sddm = {
-		package = pkgs.kdePackages.sddm;
-		enable = true;
-		wayland.enable = true;
-		extraPackages = with pkgs; [
-			sddm-astronaut
-		];
-		theme = "sddm-astronaut-theme";
-		settings = {
-			Theme = {
-				Current = "sddm-astronaut-theme";
-			};
-		};
+    package = pkgs.kdePackages.sddm;
+    enable = true;
+    wayland.enable = true;
+    extraPackages = with pkgs; [
+      sddm-astronaut
+    ];
+    theme = "sddm-astronaut-theme";
+    settings = {
+      Theme = {
+        Current = "sddm-astronaut-theme";
+      };
+    };
   };
 
   users.defaultUserShell = pkgs.zsh;
@@ -85,62 +97,64 @@
   };
 
   environment.sessionVariables = {
-	NIXOS_OZONE_WL = "1";
+    NIXOS_OZONE_WL = "1";
   };
 
   hardware = {
-	graphics.enable = true;
-  	bluetooth = {
-		enable = true;
-		settings = {
-			General = {
-      				Enable = "Source,Sink,Media,Socket";
-				Experimental = true;
-    			};
-    		};
-	};
+    graphics.enable = true;
+    bluetooth = {
+      enable = true;
+      settings = {
+        General = {
+          Enable = "Source,Sink,Media,Socket";
+          Experimental = true;
+        };
+      };
+    };
   };
 
   virtualisation.docker = {
     enable = true;
   };
 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-  	vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-	lf
-	pkgs.kitty
-	pkgs.kitty-themes
+    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    lf
+    pkgs.kitty
+    pkgs.kitty-themes
 
-	pkgs.waybar
-	pkgs.dunst
-	libnotify
-	pkgs.networkmanagerapplet
-	pkgs.brightnessctl
-	sddm-astronaut
+    pkgs.waybar
+    pkgs.dunst
+    libnotify
+    pkgs.networkmanagerapplet
+    pkgs.brightnessctl
+    sddm-astronaut
 
-	swww
-	wofi
-	btop
-	wl-clipboard
+    swww
+    wofi
+    btop
+    wl-clipboard
+    docker-compose
 
-	firefox
-	(discord.override {
-      		# withOpenASAR = true; # can do this here too
-      		withVencord = true;
-    	})
+    firefox
+    (discord.override {
+      # withOpenASAR = true; # can do this here too
+      withVencord = true;
+    })
   ];
 
-  fonts.packages = with pkgs; [ nerd-fonts.jetbrains-mono font-awesome ];
+  fonts.packages = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    font-awesome
+  ];
 
   xdg.portal = {
-	enable = true;
-	extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
-  
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
