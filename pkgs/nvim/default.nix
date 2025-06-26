@@ -7,11 +7,13 @@
       vim.viAlias = false;
       vim.vimAlias = true;
 
+      vim.syntaxHighlighting = true;
+
       # Theming
       vim.theme = {
 	enable = true;
-	name = "catppucin";
-	style = "dark";
+	name = "catppuccin";
+	style = "macchiato";
       };
 
       vim.telescope = {
@@ -22,11 +24,18 @@
 	enable = true;
       };
 
-      vim.lsp = {
+      vim.comments.comment-nvim.enable = true;
+
+      vim.autocomplete.blink-cmp = {
         enable = true;
       };
+
+      vim.lsp = {
+        enable = true;
+        formatOnSave = true;
+      };
+
       vim.languages = {
-	enableLSP = true;
 	ts.enable = true;
 	python.enable = true;
 	html.enable = true;
@@ -34,7 +43,7 @@
 	nix.enable = true;
 	sql.enable = true;
       };
+
     };
   };
-}
 }
