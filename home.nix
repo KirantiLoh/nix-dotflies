@@ -44,6 +44,7 @@
     # '')
 
     pkgs.fastfetch
+    pkgs.tree
 
     pkgs.swappy
     pkgs.grim
