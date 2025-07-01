@@ -62,7 +62,6 @@
           key = ";";
           mode = [
             "n"
-            "i"
           ];
           action = ":";
           silent = true;
