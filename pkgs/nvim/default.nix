@@ -1,4 +1,7 @@
 {
+  ...
+}:
+{
   programs.nvf = {
     enable = true;
     # your settings need to go into the settings attribute set
@@ -11,20 +14,18 @@
 
       # Theming
       vim.theme = {
-	enable = true;
-	name = "catppuccin";
-	style = "macchiato";
+        enable = true;
+        name = "catppuccin";
+        style = "macchiato";
       };
 
       vim.telescope = {
-	enable = true;
+        enable = true;
       };
 
       vim.statusline.lualine = {
-	enable = true;
+        enable = true;
       };
-
-      vim.comments.comment-nvim.enable = true;
 
       vim.autocomplete.blink-cmp = {
         enable = true;
@@ -36,14 +37,45 @@
       };
 
       vim.languages = {
-	ts.enable = true;
-	python.enable = true;
-	html.enable = true;
-	go.enable = true;
-	nix.enable = true;
-	sql.enable = true;
+        ts.enable = true;
+        python.enable = true;
+        html.enable = true;
+        go.enable = true;
+        nix.enable = true;
+        sql.enable = true;
+        markdown.enable = true;
       };
 
+      vim.autopairs.nvim-autopairs.enable = true;
+      vim.binds.cheatsheet.enable = true;
+      vim.lsp.trouble.enable = true;
+
+      vim.keymaps = [
+        {
+          key = "<leader>wq";
+          mode = [ "n" ];
+          action = ":wq<CR>";
+          silent = true;
+          desc = "Save file and quit";
+        }
+        {
+          key = ";";
+          mode = [
+            "n"
+            "i"
+          ];
+          action = ":";
+          silent = true;
+          desc = "Quick command mode";
+        }
+        {
+          key = "jk";
+          mode = [ "i" ];
+          action = "<Esc>";
+          silent = true;
+          desc = "Quick keybind for changing to normal mode";
+        }
+      ];
     };
   };
 }
