@@ -49,6 +49,10 @@
       vim.autopairs.nvim-autopairs.enable = true;
       vim.binds.cheatsheet.enable = true;
       vim.lsp.trouble.enable = true;
+      vim.presence.neocord.enable = true;
+      vim.filetree.nvimTree = {
+        enable = true;
+      };
 
       vim.keymaps = [
         {
