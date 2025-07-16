@@ -40,7 +40,8 @@ in
 
       decoration = {
         rounding = 10;
-        inactive_opacity = 0.7;
+        inactive_opacity = 0.6;
+        active_opacity = 0.8;
         blur = {
           enabled = true;
           size = 10;
