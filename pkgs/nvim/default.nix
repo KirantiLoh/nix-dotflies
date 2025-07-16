@@ -37,22 +37,39 @@
       };
 
       vim.languages = {
-        ts.enable = true;
-        python.enable = true;
+        ts = {
+          enable = true;
+          format.enable = true;
+          lsp.enable = true;
+          treesitter.enable = true;
+        };
+        python = {
+          enable = true;
+          format.enable = true;
+          lsp.enable = true;
+          treesitter.enable = true;
+        };
         html.enable = true;
-        go.enable = true;
+        go = {
+          enable = true;
+          format.enable = true;
+          lsp.enable = true;
+          treesitter.enable = true;
+        };
         nix.enable = true;
         sql.enable = true;
         markdown.enable = true;
       };
 
       vim.autopairs.nvim-autopairs.enable = true;
+      vim.utility.yazi-nvim.enable = true;
       vim.binds.cheatsheet.enable = true;
       vim.lsp.trouble.enable = true;
       vim.presence.neocord.enable = true;
       vim.visuals.nvim-web-devicons.enable = true;
       vim.filetree.nvimTree = {
         enable = true;
+        openOnSetup = false;
       };
 
       vim.keymaps = [
