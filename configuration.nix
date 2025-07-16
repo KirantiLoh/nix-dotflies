@@ -62,6 +62,10 @@
     "nix-command"
     "flakes"
   ];
+  nix.settings.trusted-users = [
+    "root"
+    "kirantiloh"
+  ];
 
   # Enable Hyprland
   programs.hyprland = {
@@ -144,6 +148,7 @@
     btop
     wl-clipboard
     docker-compose
+    pkgs.devenv
 
     firefox
     (discord.override {
