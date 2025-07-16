@@ -117,11 +117,18 @@
     enable = true;
   };
 
+  services.openvpn.servers = {
+    officeVPN = {
+      config = ''config /home/kirantiloh/.dotfiles/maurice.ovpn'';
+      autoStart = false;
+      updateResolvConf = true;
+    };
+  };
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    lf
     pkgs.kitty
     pkgs.kitty-themes
 
@@ -144,6 +151,15 @@
       withVencord = true;
     })
   ];
+
+  services.mysql = {
+    enable = true;
+    package = pkgs.mariadb;
+  };
+
+  security.pam.services.hyprlock = {
+    enable = true;
+  };
 
   fonts.packages = with pkgs; [
     nerd-fonts.jetbrains-mono
