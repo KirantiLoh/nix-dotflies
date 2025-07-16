@@ -31,6 +31,9 @@
         enable = true;
       };
 
+      vim.git.enable = true;
+      vim.git.vim-fugitive.enable = true;
+
       vim.lsp = {
         enable = true;
         formatOnSave = true;
