@@ -67,10 +67,6 @@
       vim.lsp.trouble.enable = true;
       vim.presence.neocord.enable = true;
       vim.visuals.nvim-web-devicons.enable = true;
-      vim.filetree.nvimTree = {
-        enable = true;
-        openOnSetup = false;
-      };
 
       vim.keymaps = [
         {
