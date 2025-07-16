@@ -12,6 +12,7 @@
     ./config/kitty.nix
     ./config/vscode.nix
     ./config/dunst.nix
+    ./config/yazi.nix
   ];
 
   # Home Manager needs a bit of information about you and the paths it should
@@ -49,12 +50,19 @@
     # '')
 
     pkgs.fastfetch
+    pkgs.unzip
     pkgs.tree
 
+    # Kerjaan
+    pkgs.slack
+    pkgs.dbeaver-bin
+
+    # Screenshot
     pkgs.swappy
     pkgs.grim
     pkgs.slurp
 
+    # Programming language
     pkgs.nodejs_20
     pkgs.typescript
     pkgs.typescript-language-server
