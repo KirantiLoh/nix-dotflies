@@ -63,6 +63,7 @@
     pkgs.slurp
 
     # Programming language
+    pkgs.conda
     pkgs.nodejs_20
     pkgs.typescript
     pkgs.typescript-language-server
@@ -76,6 +77,12 @@
     name = "Catppuccin-Macchiato-Dark-Cursors";
     size = 40;
     gtk.enable = true;
+  };
+
+  dconf.settings = {
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
   };
 
   gtk = {
@@ -100,10 +107,10 @@
       name = "Catppuccin-Macchiato-Standard-Sapphire-Dark";
     };
     gtk3.extraConfig = {
-      "gtk-application-prefer-dark-theme" = true;
+      gtk-application-prefer-dark-theme = 1;
     };
     gtk4.extraConfig = {
-      "gtk-application-prefer-dark-theme" = true;
+      gtk-application-prefer-dark-theme = 1;
     };
   };
 
