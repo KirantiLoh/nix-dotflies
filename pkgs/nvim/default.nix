@@ -116,6 +116,7 @@
               }
               {
                 icon = " ";
+                icon_hl = "Title";
                 desc = "Explore cwd         ";
                 desc_hl = "String";
                 key = "y";
