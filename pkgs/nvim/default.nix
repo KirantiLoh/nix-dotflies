@@ -70,15 +70,70 @@
       vim.lsp.trouble.enable = true;
       vim.presence.neocord.enable = true;
       vim.visuals.nvim-web-devicons.enable = true;
+      vim.tabline.nvimBufferline.enable = true;
+
+      vim.dashboard.dashboard-nvim = {
+        enable = true;
+        setupOpts = {
+          theme = "doom";
+          hide = {
+            statusline = false;
+          };
+          config = {
+            header = [
+              ""
+              "⣅⣶⣾⠾⣚⣭⣭⣭⣭⣝⡫⢿⣻⡿⣷⡿⠉⠉⢿⣽⣶⣿⣿⣟⣾⡿⣯⣿⣟⣾⢿⣿⣳⣾⣞⣷⣾⣹"
+              "⣿⠟⣵⣾⣿⢫⢭⢹⡿⠛⢿⣦⠹⡿⣯⠁⢄⠣⠈⢿⣯⣿⢾⣟⣯⢿⡻⠗⢟⡻⢿⣯⣿⢿⣽⡿⣽⣿"
+              "⣿⠰⣿⡏⡍⣿⣇⣿⣿⠩⣾⣿⡇⣿⠅⠐⡌⠂⠥⠈⣿⣽⣿⣻⣿⣾⢿⣿⣳⣾⣼⣭⢹⣿⣯⡿⠿⢽"
+              "⣿⣆⠻⣿⣷⣸⣿⣾⣿⣾⣿⠿⣣⣿⠀⠁⣂⣭⣤⣁⠘⠿⢾⣟⠷⣛⣛⣛⡙⢿⢩⠳⠛⠉⡀⠄⡄⣸"
+              "⣿⣟⣷⣦⣭⣭⣍⠻⡉⣥⣶⢾⡟⣉⡰⢽⣿⠟⢉⡐⡓⠘⠖⠒⣦⠭⢙⣛⡛⣂⡂⢷⠀⠣⡘⠰⢀⣿"
+              "⣿⣭⣶⣾⢿⣽⡿⡷⢤⢿⡿⣩⣾⣿⡿⠟⣁⣤⣥⣌⡀⣃⡐⠤⢀⠌⡁⠂⢩⡳⣼⣄⠶⣠⣁⠃⢾⣿"
+              "⣿⡿⣽⣿⣻⣯⣿⣾⠿⠇⣴⣿⣿⡿⢡⢾⠟⣑⡋⢡⡎⡯⢽⣿⣱⣶⣤⡁⠀⢿⣿⣯⡈⠋⣒⣭⣼⣿"
+              "⣿⡿⣟⣷⡿⣯⣷⣿⠃⣾⣾⣿⠟⠀⢢⣤⡰⢏⡎⣼⣿⣿⣯⢻⡇⡨⣝⢻⣞⠸⣗⢻⣷⢠⢻⣿⡻⠾"
+              "⣿⢿⣟⣯⠿⠟⣽⠎⣼⣾⣿⠏⡰⠰⣫⣵⣶⣬⡁⢿⣿⣿⣿⡣⣱⣷⣌⢰⣿⠀⣿⣷⡝⡂⡆⣴⣻⣿"
+              "⣿⣿⣙⣶⣷⣿⡟⢸⣿⣿⣟⢡⢂⣿⢏⣥⣶⣮⠻⣆⣈⡛⣩⣤⣶⣶⣤⣈⢥⡅⡻⣿⣿⡆⢧⢸⣿⢿"
+              "⣿⣯⣿⣟⣯⣿⠇⡟⢸⡿⠟⣀⣸⣿⠨⣿⣿⡿⢀⣿⣿⣿⣿⢏⣶⣶⣦⡙⣧⡇⣿⣎⣿⣷⠀⢸⣿⣙"
+              "⣿⣟⣾⣯⣯⣭⡅⠃⣿⢰⣿⣟⡿⣿⣷⣶⣶⣶⡞⣿⣿⣿⣿⡘⠿⢿⣿⢃⣿⢡⢿⣟⢿⡟⠀⣺⣙⣹"
+              "⣿⣟⣯⣿⣽⣟⡇⠀⡿⢦⡙⢿⣿⣷⣿⣿⣿⠟⣥⣥⣬⠉⢾⣿⣿⡶⣲⢿⡏⣴⣿⣿⣏⠇⠀⣿⣿⣻"
+              "⣿⣟⣯⣷⣿⣻⣿⠷⠰⡆⢿⢰⢂⣭⠙⡛⣛⠴⠬⠩⢌⣼⣿⣿⣿⣿⣿⡯⣰⣿⣿⠟⢸⢠⢇⢹⣷⣿"
+              "⣿⣇⣮⣃⣭⣭⣸⣿⠷⢌⠈⠂⣪⣽⢀⢠⠛⠻⠌⢛⠒⡰⢶⡶⡴⣀⠠⠠⣿⣿⠟⠀⠃⢸⠞⣢⠙⢾"
+              "⣿⣟⣿⢿⡿⣷⣿⣻⣷⣼⣴⣶⣉⣦⣤⣀⣌⡁⠐⠀⠄⠨⠕⠊⠰⠄⠖⠑⣋⠱⠆⠐⡜⡠⢤⣶⣶⣶"
+              "⣿⣟⣯⣿⢿⣻⣷⡿⣯⣿⣻⣽⣿⣛⣭⣛⣛⣿⣿⣳⣿⡿⣿⣷⡷⣿⣿⢿⡿⢿⡷⣶⣶⣿⣶⣾⢷⣿"
+              ""
+              ""
+            ];
+            center = [
+              {
+                icon = " ";
+                icon_hl = "Title";
+                desc = "Find File           ";
+                desc_hl = "String";
+                key = "f";
+                keymap = "SPC f f";
+                key_hl = "Number";
+                key_format = " %s";
+                action = "Telescope find_files cwd=";
+              }
+              {
+                icon = " ";
+                desc = "Explore cwd         ";
+                desc_hl = "String";
+                key = "y";
+                keymap = "SPC -";
+                key_hl = "Number";
+                key_format = " %s";
+                action = "Yazi";
+              }
+            ];
+            footer = [
+              "If Haru Urara never gave up, neither should you"
+            ];
+            vertical_center = true;
+          };
+        };
+      };
 
       vim.keymaps = [
-        {
-          key = "<leader>wq";
-          mode = [ "n" ];
-          action = ":wq<CR>";
-          silent = true;
-          desc = "Save file and quit";
-        }
         {
           key = ";";
           mode = [
