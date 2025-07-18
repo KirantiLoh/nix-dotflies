@@ -48,6 +48,20 @@ in
         };
       };
 
+      binde = [
+        "$mod SHIFT, right, resizeactive, 10 0"
+        "$mod SHIFT, left, resizeactive, -10 0"
+        "$mod SHIFT, up, resizeactive, 0 -10"
+        "$mod SHIFT, down, resizeactive, 0 10"
+      ];
+
+      binded = [
+        "$mod SHIFT CTRL, left, Move activewindow left, exec, hyprctl dispatch movewindow l"
+        "$mod SHIFT CTRL, right, Move activewindow right, exec, hyprctl dispatch movewindow r"
+        "$mod SHIFT CTRL, up, Move activewindow up, exec, hyprctl dispatch movewindow u"
+        "$mod SHIFT CTRL, down, Move activewindow down, exec, hyprctl dispatch movewindow d"
+      ];
+
       bind =
         [
           # Program shortcut
@@ -70,11 +84,6 @@ in
           "CTRL ALT, Delete, exec, hyprctl dispatch exit"
           "$mod, Q, killactive"
           "ALT, Tab, cyclenext,"
-
-          "$mod SHIFT, right, resizeactive, 10 0"
-          "$mod SHIFT, left, resizeactive, -10 0"
-          "$mod SHIFT, up, resizeactive, 0 -10"
-          "$mod SHIFT, down, resizeactive, 0 10"
 
           "$mod, left, movefocus, l"
           "$mod, right, movefocus, r"
