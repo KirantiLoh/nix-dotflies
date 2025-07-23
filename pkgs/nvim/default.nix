@@ -74,6 +74,8 @@
         enable = true;
         mappings = {
           closeCurrent = "<leader>cf";
+          cycleNext = "<Tab>";
+          cyclePrevious = "<S-Tab>";
         };
       };
 
