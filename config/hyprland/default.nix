@@ -1,7 +1,5 @@
 {
   pkgs,
-  lib,
-  config,
   ...
 }:
 
@@ -48,6 +46,17 @@ in
         };
       };
 
+      windowrulev2 = [
+        "noblur, title:^(Emulator)$"
+        "immediate, title:^(Emulator)$"
+        "noanim, title:^(Emulator)$"
+        "noshadow, title:^(Emulator)$"
+        "nodim, title:^(Emulator)$"
+        "rounding 0, title:^(Emulator)$"
+        "bordersize 0, title:^(Emulator)$"
+        "decorate, title:^(Emulator)$, off"
+      ];
+
       binde = [
         "$mod SHIFT, right, resizeactive, 10 0"
         "$mod SHIFT, left, resizeactive, -10 0"
@@ -74,6 +83,8 @@ in
           "$mod, Print, exec, grim -g \"$(slurp)\" - | swappy -f -"
 
           "CTRL ALT, W, exec, pkill waybar || waybar"
+          ", F12, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1 5%+"
+          ", F11, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1 5%-"
           ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1 5%+"
           ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1 5%-"
           ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
