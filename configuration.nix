@@ -149,6 +149,7 @@
     wl-clipboard
     docker-compose
     pkgs.devenv
+    pkgs.ncdu
 
     firefox
     (discord.override {
