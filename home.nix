@@ -56,6 +56,7 @@
     # Kerjaan
     pkgs.slack
     pkgs.dbeaver-bin
+    pkgs.postman
 
     # Screenshot
     pkgs.swappy
@@ -63,7 +64,6 @@
     pkgs.slurp
 
     # Programming language
-    pkgs.conda
     pkgs.nodejs_20
     pkgs.typescript
     pkgs.typescript-language-server
@@ -87,6 +87,10 @@
 
   gtk = {
     enable = true;
+    theme = {
+      name = "Dracula";
+      package = pkgs.dracula-theme;
+    };
     iconTheme = {
       package = (
         pkgs.catppuccin-papirus-folders.override {
@@ -96,25 +100,7 @@
       );
       name = "Papirus-Dark";
     };
-    theme = {
-      package = (
-        pkgs.catppuccin-gtk.override {
-          accents = [ "sapphire" ];
-          size = "standard";
-          variant = "macchiato";
-        }
-      );
-      name = "Catppuccin-Macchiato-Standard-Sapphire-Dark";
-    };
-    gtk3.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
-    gtk4.extraConfig = {
-      gtk-application-prefer-dark-theme = 1;
-    };
   };
-
-  home.sessionVariables.GTK_THEME = "Catppuccin-Macchiato-Standard-Sapphire-Dark";
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
