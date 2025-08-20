@@ -177,6 +177,10 @@
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
   };
 
+  networking.extraHosts = ''
+    127.0.0.1 local.bridestory.com
+  '';
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
