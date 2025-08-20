@@ -49,6 +49,14 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
 
+    (pkgs.catppuccin-kvantum.override {
+      accent = "sapphire";
+      variant = "macchiato";
+    })
+    pkgs.libsForQt5.qtstyleplugin-kvantum
+    pkgs.libsForQt5.qt5ct
+    pkgs.papirus-folders
+
     pkgs.fastfetch
     pkgs.unzip
     pkgs.tree
@@ -82,14 +90,31 @@
   dconf.settings = {
     "org/gnome/desktop/interface" = {
       color-scheme = "prefer-dark";
+      gtk-theme = "Catppuccin-Macchiato-Standard-Sapphire-Dark";
     };
   };
+
+  qt = {
+    enable = true;
+    platformTheme = "qtct";
+    style.name = "kvantum";
+  };
+
+  xdg.configFile."Kvantum/kvantum.kvconfig".source =
+    (pkgs.formats.ini { }).generate "kvantum.kvconfig"
+      {
+        General.theme = "Catppuccin-Macchiato-Sapphire";
+      };
 
   gtk = {
     enable = true;
     theme = {
-      name = "Dracula";
-      package = pkgs.dracula-theme;
+      name = "Catppuccin-Macchiato-Standard-Sapphire-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "sapphire" ];
+        size = "standard";
+        variant = "macchiato";
+      };
     };
     iconTheme = {
       package = (
@@ -99,6 +124,12 @@
         }
       );
       name = "Papirus-Dark";
+    };
+    gtk3 = {
+      extraConfig.gtk-application-prefer-dark-theme = true;
+    };
+    gtk4 = {
+      extraConfig.gtk-application-prefer-dark-theme = true;
     };
   };
 
@@ -133,8 +164,9 @@
   #
   #  /etc/profiles/per-user/kirantiloh/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
+  home.sessionVariables = lib.mkForce {
     # EDITOR = "emacs";
+    QT_QPA_PLATFORMTHEME = "qt6ct";
   };
 
   services.mpris-proxy.enable = true;
