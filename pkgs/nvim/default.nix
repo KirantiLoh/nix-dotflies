@@ -40,6 +40,11 @@
       };
 
       vim.languages = {
+        haskell = {
+          enable = true;
+          lsp.enable = true;
+          treesitter.enable = true;
+        };
         ts = {
           enable = true;
           format.enable = true;
@@ -52,7 +57,16 @@
           lsp.enable = true;
           treesitter.enable = true;
         };
-        html.enable = true;
+        rust = {
+          enable = true;
+          format.enable = true;
+          lsp.enable = true;
+          treesitter.enable = true;
+        };
+        html = {
+          enable = true;
+          treesitter.autotagHtml = true;
+        };
         go = {
           enable = true;
           format.enable = true;
