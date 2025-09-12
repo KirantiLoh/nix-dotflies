@@ -81,6 +81,7 @@ in
         "$mod, A, exec, pkill wofi || wofi --conf /home/kirantiloh/.dotfiles/config/wofi/config/config --style /home/kirantiloh/.dotfiles/config/wofi/src/macchiato/style.css --sort-order=alphabetical -S drun"
         "$mod, P, exec, grim -g \"$(slurp)\" - | swappy -f -"
         "$mod, L, exec, loginctl lock-session"
+        "$mod_CTRL, S, exec, systemctl suspend"
 
         "CTRL ALT, W, exec, pkill waybar || waybar"
         ", F12, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1 5%+"
