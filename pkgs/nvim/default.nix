@@ -45,6 +45,11 @@
           lsp.enable = true;
           treesitter.enable = true;
         };
+        gleam = {
+          enable = true;
+          lsp.enable = true;
+          treesitter.enable = true;
+        };
         ts = {
           enable = true;
           format.enable = true;
