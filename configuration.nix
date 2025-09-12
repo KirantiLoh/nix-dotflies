@@ -150,6 +150,7 @@
     docker-compose
     pkgs.devenv
     pkgs.ncdu
+    pkgs.wget
 
     firefox
     (discord.override {
