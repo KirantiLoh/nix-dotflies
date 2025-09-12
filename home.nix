@@ -166,7 +166,7 @@
   #
   home.sessionVariables = lib.mkForce {
     # EDITOR = "emacs";
-    QT_QPA_PLATFORMTHEME = "qt6ct";
+    QT_QPA_PLATFORMTHEME_NAME = "qt6ct";
   };
 
   services.mpris-proxy.enable = true;
