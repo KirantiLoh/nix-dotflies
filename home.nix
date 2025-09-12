@@ -59,6 +59,7 @@
 
     pkgs.fastfetch
     pkgs.unzip
+    pkgs.unar
     pkgs.tree
 
     # Kerjaan
